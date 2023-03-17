@@ -25,8 +25,9 @@ class DaoUserTest {
     private final String Irina = "Irina";
     private final List<User> USER_CORRECT_LIST = List.of(new User(Anton), new User(Anna), new User(Oleg),
             new User(Irina));
-    private final List<User>  USERS_INCORRECT_LIST = List.of(new User("Grigoriy"), new User("Boris"));
+    private final List<User> USERS_INCORRECT_LIST = List.of(new User("Grigoriy"), new User("Boris"));
     DaoUser daoUser;
+
     @BeforeEach
     void createUser() {
         daoUser = new DaoUser();
@@ -34,13 +35,14 @@ class DaoUserTest {
 
     @Test
     void shouldFindUserNameIfExist() {
-        Assertions.assertEquals(USER_CORRECT_NAME, daoUser.getUserByName("Anton"));
+        String User = Anton;
+        Assertions.assertEquals(User, daoUser.getUserByName("Anton"));
     }
 
     @Test
     void shouldReturnNullIfUserNotExist() {
         String Anna = "Anna";
-        Assertions.assertNull((Object) null, (Supplier<String>) daoUser.getUserByName(USER_INCORRECT_NAME));
+        Assertions.assertNull(daoUser.getUserByName(USER_INCORRECT_NAME));
     }
 
     @Test
